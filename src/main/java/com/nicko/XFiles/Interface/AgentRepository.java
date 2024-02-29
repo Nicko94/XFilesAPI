@@ -1,6 +1,7 @@
 package com.nicko.XFiles.Interface;
 
 import com.nicko.XFiles.Entity.Agent;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 public interface AgentRepository extends JpaRepository<Agent, Long>{ // This repository interface provides CRUD functionalities, extending "PagingAndSortingRepository" which extends "CrudRepository"
