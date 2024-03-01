@@ -22,15 +22,47 @@ public class AgentController {
     public List<Agent> getAllAgents(){
         return agentRepository.findAll();
     }
+
     @GetMapping("/{id}")
-    public String getAgentById(@PathVariable Long id){
-        return "Agent by ID";
-    }
-    @PostMapping
-    public Agent createAgent(@RequestBody Agent agent){
-        return agentRepository.save(agent);
+    public Agent getAgentById(@PathVariable Long id){
+        return agentRepository.findAgentById(id);
     }
 
+    @GetMapping("/{lastName}")
+    public Agent getAgentBySurname(@PathVariable String lastName){
+        return agentRepository.findAgentBySurname(lastName);
+    }
+
+    @GetMapping("/{gender}")
+    public Agent getAgentByGender(@PathVariable String gender){
+        return agentRepository.findAgentByGender(gender);
+    }
+
+    @GetMapping("/{occupation}")
+    public Agent getAgentByOccupation(@PathVariable String occupation){
+        return agentRepository.findAgentByOccupation(occupation);
+    }
+
+    @PostMapping
+    public Agent createAgent(@RequestBody Agent agentRequest){
+        Agent storeAgent = new Agent(
+                agentRequest.getBirthDate(),
+                agentRequest.getFirstName(),
+                agentRequest.getMiddleName(),
+                agentRequest.getLastName(),
+                agentRequest.getEducation(),
+                agentRequest.getSpecies(),
+                agentRequest.getGender(),
+                agentRequest.getOccupation(),
+                agentRequest.getAffiliation(),
+                agentRequest.getReligion(),
+                agentRequest.getResidence(),
+                agentRequest.getPartner()
+        );
+        return agentRepository.save(storeAgent);
+    }
+
+    // This is another way of doing it but I don't like it:
     //@PostMapping
     //public String createAgent(
     //        @RequestBody String name,

@@ -31,7 +31,8 @@
 			<groupId>javax.persistence</groupId>
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version>
-		</dependency>		<!--//////////////////////////////////////SEPARADOR DE BAJO PRESUPUESTO//////////////////////////////////////-->
+		</dependency>
+		<!--//////////////////////////////////////SEPARADOR DE BAJO PRESUPUESTO//////////////////////////////////////-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>

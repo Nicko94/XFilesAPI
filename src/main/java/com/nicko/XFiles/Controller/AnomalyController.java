@@ -28,8 +28,19 @@ public class AnomalyController {
         return anomalyRepository.findByName(name);
     }
 
+    @GetMapping("/{type}")
+    public Anomaly fetchAnomalyByType(@PathVariable String type){
+        return anomalyRepository.findByType(type);
+    }
+
     @PostMapping
-    public Anomaly createAnomaly(@RequestBody Anomaly anomaly){
-        return anomalyRepository.save(anomaly);
+    public Anomaly createAnomaly(@RequestBody Anomaly anomalyRequest){
+        Anomaly storeAnomaly = new Anomaly(
+                anomalyRequest.getName(),
+                anomalyRequest.getType(),
+                anomalyRequest.getPhenomenon(),
+                anomalyRequest.getCharacteristics()
+        );
+        return anomalyRepository.save(storeAnomaly);
     }
 }

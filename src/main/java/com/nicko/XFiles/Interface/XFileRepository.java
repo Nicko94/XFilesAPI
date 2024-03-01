@@ -1,10 +1,14 @@
 package com.nicko.XFiles.Interface;
 
-import com.nicko.XFiles.Entity.File;
+import com.nicko.XFiles.Entity.XFile;
+import com.nicko.XFiles.Entity.Anomaly;
+import com.nicko.XFiles.Entity.Report;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-public interface FileRepository extends JpaRepository {
-    File findByName(String name);
+public interface XFileRepository extends JpaRepository {
+    XFile findXFileRepositoryById(Long id);
+    XFile findByAnomaly(Anomaly anomaly);
+    XFile findByReport(Report report);
+
 }

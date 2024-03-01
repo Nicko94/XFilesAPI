@@ -23,10 +23,10 @@ public class ReportController {
         return reportRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Report fetchReportByName(@PathVariable Long id){
-        return reportRepository.findById(id);
-    }
+    //@GetMapping("/{id}")
+    //public Report fetchReportByName(@PathVariable Long id){
+    //    return reportRepository.findById(id);
+    //}
 
     @PostMapping
     public Report createReport(@RequestBody Report report){

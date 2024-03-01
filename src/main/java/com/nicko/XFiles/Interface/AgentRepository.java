@@ -8,5 +8,8 @@ public interface AgentRepository extends JpaRepository<Agent, Long>{ // This rep
     // Custom queries additional to the JPA Repository interface
     // Test query to find Agents by name:
     //@Query("SELECT a FROM Agent a WHERE a.name = ?1");
-    Agent findByName(String name);
+    Agent findAgentById(Long id);
+    Agent findAgentBySurname(String lastName);
+    Agent findAgentByGender(String gender);
+    Agent findAgentByOccupation(String occupation);
 }

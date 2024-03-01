@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface AnomalyRepository extends JpaRepository<Anomaly, Long> {
     Anomaly findByName(String name);
+    Anomaly findByType(String type);
 }

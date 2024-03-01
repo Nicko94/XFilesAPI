@@ -5,17 +5,28 @@ import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+import com.nicko.XFiles.Entity.XFile;
+import com.nicko.XFiles.Interface.XFileRepository;
+
 @RestController
 @RequestMapping("/files")
-public class FileController {
+public class XFileController {
+    private final XFileRepository xFileRepository;
+    @Autowired
+    public XFileController(XFileRepository xFileRepository){
+        this.xFileRepository = xFileRepository;
+    }
     @GetMapping
-    public String getAllFiles(){
-        // List all files for paging
-        return "[FILES NOT AVAILABLE]";
+    public List<XFile> getAllFiles(){
+        return xFileRepository.findAll();
     }
     @GetMapping("/{id}")
-    public String getFileById(@PathVariable int id){
-        return "Fuck you";
+    public XFile getFileById(@PathVariable Long id){
+        return xFileRepository.findXFileRepositoryById(id);
     }
 
 }
