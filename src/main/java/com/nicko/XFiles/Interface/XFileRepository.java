@@ -6,9 +6,8 @@ import com.nicko.XFiles.Entity.Report;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface XFileRepository extends JpaRepository {
+public interface XFileRepository extends JpaRepository<XFile, Long> {
     XFile findXFileRepositoryById(Long id);
     XFile findByAnomaly(Anomaly anomaly);
     XFile findByReport(Report report);
-
 }
